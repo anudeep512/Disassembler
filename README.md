@@ -1,7 +1,7 @@
 
 # Disassembler
 
-This project aims to develop a Disassembler which converts given **RISC-V machine code** to **RISC-V instruction**
+This project was done as part of **Course CS2233** which was organized by **Dr. Rajesh Kedia** which aims to develop a Disassembler which converts given **RISC-V machine code** to **RISC-V instruction**
 
 
 ## Authors
@@ -16,7 +16,7 @@ This project aims to develop a Disassembler which converts given **RISC-V machin
 
 
 ## Prerequisite
-Check if suitable compiler exists for compiling the c++ code
+Check if a suitable compiler exists for compiling the C++ code
 
 for g++ compiler:
 
