@@ -1,0 +1,307 @@
+\doxysection{Disassembler.\+cpp File Reference}
+\hypertarget{_disassembler_8cpp}{}\label{_disassembler_8cpp}\index{Disassembler.cpp@{Disassembler.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_disassembler_8cpp_a1dd7fed1ec7b1a3894ebcb982edcf648}\label{_disassembler_8cpp_a1dd7fed1ec7b1a3894ebcb982edcf648} 
+\#define {\bfseries size\+\_\+of\+\_\+instruction\+\_\+hex}~8
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{_disassembler_8cpp_ad1ecf4e05769cab7afb52f40d31c0534}{convert\+\_\+to\+\_\+binary}} (char num)
+\begin{DoxyCompactList}\small\item\em This function converts given character to its Binary format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_disassembler_8cpp_a91bcd2fbf0c12f782b9882fdd989f6f5}{binary\+\_\+to\+\_\+decimal}} (int token, string binary)
+\begin{DoxyCompactList}\small\item\em Converts the given Binary value to Decimal value. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_aa70701d09fe555736e9742888a464cfe}{sub\+\_\+string}} (string parent, int start, int end)
+\begin{DoxyCompactList}\small\item\em This function is used extract substring from string. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a79ad806a58901f7a5120972908609e36}{R\+\_\+format}} (const string \&string\+Binary)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V R-\/format instruction this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a126d6248d3ae7683be9d20aed27fda29}{I\+\_\+format\+\_\+immediate}} (const string \&string\+Binary)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V I-\/format instruction this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a263902f46367e775e015bff79af5c0c5}{I\+\_\+format\+\_\+load}} (const string \&string\+Binary)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V I-\/format load instruction type this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a3a608dbaf3f6c47c83bf1e2198008b89}{S\+\_\+format}} (const string \&string\+Binary)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V S-\/format this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a7835b25c8277d5027008e057c94c955f}{B\+\_\+format}} (string string\+Binary, int inst\+\_\+no, int total\+\_\+instructions)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V B-\/format this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_ac13a79a2048c0b4a4c2d56bf06ae84d8}{jal}} (string string\+Binary, int inst\+\_\+no, int total\+\_\+instructions)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V jal format this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a0d53d90cde03cb77dde132754fca363e}{jalr}} (const string \&string\+Binary)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V jalr format this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a04aaf3f8192dbcc9451ace7c3c9fe4cf}{lui}} (const string \&string\+Binary)
+\begin{DoxyCompactList}\small\item\em If the given machine code represents RISC-\/V lui format this function generates RISC-\/V instruction from the machine code. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_disassembler_8cpp_a234e2512078a5a5793c93b3d0054ba5e}{disassembler}} (int total\+\_\+instructions, string instruction, int inst\+\_\+no)
+\begin{DoxyCompactList}\small\item\em This function conversion of given machine code to binary value is done and based on opcode the corresponding instruction type is found and is processed accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_disassembler_8cpp_aaed33fe77209e582d96078370b5f8da4}{program}} ()
+\begin{DoxyCompactList}\small\item\em This function reads machine code and each machine code is sent to \doxylink{_disassembler_8cpp_a234e2512078a5a5793c93b3d0054ba5e}{disassembler()} for further processing. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_disassembler_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function where program execution starts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the code for Disassembler of RISC-\/V machine code \begin{DoxyAuthor}{Author}
+Anudeep Rao Perala 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_disassembler_8cpp_a7835b25c8277d5027008e057c94c955f}\label{_disassembler_8cpp_a7835b25c8277d5027008e057c94c955f} 
+\index{Disassembler.cpp@{Disassembler.cpp}!B\_format@{B\_format}}
+\index{B\_format@{B\_format}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{B\_format()}{B\_format()}}
+{\footnotesize\ttfamily string B\+\_\+format (\begin{DoxyParamCaption}\item[{string}]{string\+Binary,  }\item[{int}]{inst\+\_\+no,  }\item[{int}]{total\+\_\+instructions }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V B-\/format this function generates RISC-\/V instruction from the machine code. 
+
+B-\/format instructions are\+: beq, bne, blt, bge, bltu, bgeu 
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a91bcd2fbf0c12f782b9882fdd989f6f5}\label{_disassembler_8cpp_a91bcd2fbf0c12f782b9882fdd989f6f5} 
+\index{Disassembler.cpp@{Disassembler.cpp}!binary\_to\_decimal@{binary\_to\_decimal}}
+\index{binary\_to\_decimal@{binary\_to\_decimal}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{binary\_to\_decimal()}{binary\_to\_decimal()}}
+{\footnotesize\ttfamily int binary\+\_\+to\+\_\+decimal (\begin{DoxyParamCaption}\item[{int}]{token,  }\item[{string}]{binary }\end{DoxyParamCaption})}
+
+
+
+Converts the given Binary value to Decimal value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & This is used to specify if the given binary value is in it\textquotesingle{}s signed/ unsigned format \\
+\hline
+{\em binary} & Binary value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decimal value 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_ad1ecf4e05769cab7afb52f40d31c0534}\label{_disassembler_8cpp_ad1ecf4e05769cab7afb52f40d31c0534} 
+\index{Disassembler.cpp@{Disassembler.cpp}!convert\_to\_binary@{convert\_to\_binary}}
+\index{convert\_to\_binary@{convert\_to\_binary}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_binary()}{convert\_to\_binary()}}
+{\footnotesize\ttfamily string convert\+\_\+to\+\_\+binary (\begin{DoxyParamCaption}\item[{char}]{num }\end{DoxyParamCaption})}
+
+
+
+This function converts given character to its Binary format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This function returns binary number format of the input character for concatenation 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a234e2512078a5a5793c93b3d0054ba5e}\label{_disassembler_8cpp_a234e2512078a5a5793c93b3d0054ba5e} 
+\index{Disassembler.cpp@{Disassembler.cpp}!disassembler@{disassembler}}
+\index{disassembler@{disassembler}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{disassembler()}{disassembler()}}
+{\footnotesize\ttfamily string disassembler (\begin{DoxyParamCaption}\item[{int}]{total\+\_\+instructions,  }\item[{string}]{instruction,  }\item[{int}]{inst\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+This function conversion of given machine code to binary value is done and based on opcode the corresponding instruction type is found and is processed accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em total\+\_\+instructions} & Total number of instructions given as input \\
+\hline
+{\em instruction} & This is machine code of the RISC-\/V instruction \\
+\hline
+{\em inst\+\_\+no} & States the instruction number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Disassembled RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a126d6248d3ae7683be9d20aed27fda29}\label{_disassembler_8cpp_a126d6248d3ae7683be9d20aed27fda29} 
+\index{Disassembler.cpp@{Disassembler.cpp}!I\_format\_immediate@{I\_format\_immediate}}
+\index{I\_format\_immediate@{I\_format\_immediate}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{I\_format\_immediate()}{I\_format\_immediate()}}
+{\footnotesize\ttfamily string I\+\_\+format\+\_\+immediate (\begin{DoxyParamCaption}\item[{const string \&}]{string\+Binary }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V I-\/format instruction this function generates RISC-\/V instruction from the machine code. 
+
+I-\/format instructions are\+: addi, xori, ori, andi, slli, srli, srai 
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a263902f46367e775e015bff79af5c0c5}\label{_disassembler_8cpp_a263902f46367e775e015bff79af5c0c5} 
+\index{Disassembler.cpp@{Disassembler.cpp}!I\_format\_load@{I\_format\_load}}
+\index{I\_format\_load@{I\_format\_load}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{I\_format\_load()}{I\_format\_load()}}
+{\footnotesize\ttfamily string I\+\_\+format\+\_\+load (\begin{DoxyParamCaption}\item[{const string \&}]{string\+Binary }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V I-\/format load instruction type this function generates RISC-\/V instruction from the machine code. 
+
+I-\/format load instructions are\+: ld, lh, lw, lbu, lhu, lwu 
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_ac13a79a2048c0b4a4c2d56bf06ae84d8}\label{_disassembler_8cpp_ac13a79a2048c0b4a4c2d56bf06ae84d8} 
+\index{Disassembler.cpp@{Disassembler.cpp}!jal@{jal}}
+\index{jal@{jal}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{jal()}{jal()}}
+{\footnotesize\ttfamily string jal (\begin{DoxyParamCaption}\item[{string}]{string\+Binary,  }\item[{int}]{inst\+\_\+no,  }\item[{int}]{total\+\_\+instructions }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V jal format this function generates RISC-\/V instruction from the machine code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+jal RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a0d53d90cde03cb77dde132754fca363e}\label{_disassembler_8cpp_a0d53d90cde03cb77dde132754fca363e} 
+\index{Disassembler.cpp@{Disassembler.cpp}!jalr@{jalr}}
+\index{jalr@{jalr}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{jalr()}{jalr()}}
+{\footnotesize\ttfamily string jalr (\begin{DoxyParamCaption}\item[{const string \&}]{string\+Binary }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V jalr format this function generates RISC-\/V instruction from the machine code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+jalr RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a04aaf3f8192dbcc9451ace7c3c9fe4cf}\label{_disassembler_8cpp_a04aaf3f8192dbcc9451ace7c3c9fe4cf} 
+\index{Disassembler.cpp@{Disassembler.cpp}!lui@{lui}}
+\index{lui@{lui}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{lui()}{lui()}}
+{\footnotesize\ttfamily string lui (\begin{DoxyParamCaption}\item[{const string \&}]{string\+Binary }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V lui format this function generates RISC-\/V instruction from the machine code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lui RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_disassembler_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{Disassembler.cpp@{Disassembler.cpp}!main@{main}}
+\index{main@{main}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main function where program execution starts. 
+
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_aaed33fe77209e582d96078370b5f8da4}\label{_disassembler_8cpp_aaed33fe77209e582d96078370b5f8da4} 
+\index{Disassembler.cpp@{Disassembler.cpp}!program@{program}}
+\index{program@{program}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{program()}{program()}}
+{\footnotesize\ttfamily void program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function reads machine code and each machine code is sent to \doxylink{_disassembler_8cpp_a234e2512078a5a5793c93b3d0054ba5e}{disassembler()} for further processing. 
+
+At a time single machine code is processed and corresponding RISC-\/V instruction is generated, labelling of jump operations is taken care in this function
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a79ad806a58901f7a5120972908609e36}\label{_disassembler_8cpp_a79ad806a58901f7a5120972908609e36} 
+\index{Disassembler.cpp@{Disassembler.cpp}!R\_format@{R\_format}}
+\index{R\_format@{R\_format}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{R\_format()}{R\_format()}}
+{\footnotesize\ttfamily string R\+\_\+format (\begin{DoxyParamCaption}\item[{const string \&}]{string\+Binary }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V R-\/format instruction this function generates RISC-\/V instruction from the machine code. 
+
+R-\/format instructions are\+: add, sub, xor, or, and, sll, srl, sra 
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_a3a608dbaf3f6c47c83bf1e2198008b89}\label{_disassembler_8cpp_a3a608dbaf3f6c47c83bf1e2198008b89} 
+\index{Disassembler.cpp@{Disassembler.cpp}!S\_format@{S\_format}}
+\index{S\_format@{S\_format}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{S\_format()}{S\_format()}}
+{\footnotesize\ttfamily string S\+\_\+format (\begin{DoxyParamCaption}\item[{const string \&}]{string\+Binary }\end{DoxyParamCaption})}
+
+
+
+If the given machine code represents RISC-\/V S-\/format this function generates RISC-\/V instruction from the machine code. 
+
+S-\/format instructions are\+: sb, sh, sw, sd 
+\begin{DoxyParams}{Parameters}
+{\em string\+Binary} & RISC-\/V instruction machine code from which the RISCV instruction is generated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RISC-\/V instruction 
+\end{DoxyReturn}
+\Hypertarget{_disassembler_8cpp_aa70701d09fe555736e9742888a464cfe}\label{_disassembler_8cpp_aa70701d09fe555736e9742888a464cfe} 
+\index{Disassembler.cpp@{Disassembler.cpp}!sub\_string@{sub\_string}}
+\index{sub\_string@{sub\_string}!Disassembler.cpp@{Disassembler.cpp}}
+\doxysubsubsection{\texorpdfstring{sub\_string()}{sub\_string()}}
+{\footnotesize\ttfamily string sub\+\_\+string (\begin{DoxyParamCaption}\item[{string}]{parent,  }\item[{int}]{start,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+This function is used extract substring from string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent string from which substring is generated \\
+\hline
+{\em start} & Starting index of element in parent string \\
+\hline
+{\em end} & End index of element in parent string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Substring from parent string 
+\end{DoxyReturn}
