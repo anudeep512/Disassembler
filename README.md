@@ -1,9 +1,110 @@
-->The submitted code contains the code for a Dissasembler
-->We give 8 digit HEX number as input then we get corresponding instruction as output 
-->Guidelines for execution of the code :
-  1)Compile the code using g++ CS21BTECH11043.cpp.
-  2)Execute the excecutable using ./a.out.
-  3)The inputs to the program are read from the "inputs.txt" file in the zip.(Dont change the name of the inputs.txt file as it is the file from which the program read he data from)
-  4)If the user want to change the inputs to the program the user need to add the HEX digit to the inputs.txt file.
-  5)Initially in the inputs.txt I have stored all the HEX values of all the instructions possible. If the user executes the program with the initially given dataset then all the instructions which are asked to be implemented are printed to the console.
-(I have 2 datasets for checking one in inputs.txt and other in inputs1.txt)  
+
+# Disassembler
+
+This project aims to develop a Disassembler which converts given **RISC-V machine code** to **RISC-V instruction**
+
+
+## Authors
+
+- [@anudeep512](https://www.github.com/anudeep512)
+
+
+## Tech Stack
+
+**Command Line:** C++
+
+
+
+## Prerequisite
+Check if suitable compiler exists for compiling the c++ code
+
+for g++ compiler:
+
+    g++ --version
+for clang compiler:
+
+    clang --version
+
+Check if CMake exists:
+
+    cmake --version
+If there isn't any version of CMake installed on your machine install CMake:
+
+for MacOS:
+
+    brew install cmake 
+
+for Ubuntu:
+
+    sudo apt-get install cmake
+## Installation and Usage 
+
+### Installing project
+
+Clone from repo:
+
+    git clone https://github.com/anudeep512/Disassembler/
+
+
+
+### Running the Program
+
+After cloning is done redirect control to project folder using:
+
+    cd ./Disassembler
+
+To generate the compilation files run:
+    
+    cmake .
+
+To actually compile the application, you must use GNU make with the make command:
+
+    make
+
+Launch the application with:
+
+    ./Disassembler
+
+
+
+
+## Features
+
+- Given a **8 digit HEX RISC-V machine code** the corresponding **RISC-V instruction** is generated 
+
+### Example 
+#### Input 
+    007201b3
+    00720863
+    00c0006f
+    00533623 
+    100004b7 
+    00c50493
+
+#### Output
+    add x3, x4, x7 
+    beq x4, x7, L1
+    jal x0, L1
+    sd x5, 12(x6)
+    lui x9, 0x10000
+    L1: addi x9, x10, 12
+
+- Sample Test cases can be found in the files **inputs.txt, inputs1.txt, inputs2.txt**. The code reads input from the file **inputs.txt** so work accordingly changing the file.
+
+
+
+
+
+
+
+## Documentation
+
+locate **Disassembler.html** :
+
+    cd /Disassembler/Documentation/html/Disassembler.html
+
+Now open the **Disassembler.html** file in any internet browser
+
+
+
+
