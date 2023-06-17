@@ -99,11 +99,7 @@ Launch the application with:
 
 ## Documentation
 
-locate **Disassembler.html** :
-
-    cd /Disassembler/Documentation/html/Disassembler.html
-
-Now open the **Disassembler.html** file in any internet browser
+Please look into https://anudeep512.github.io/RISC-V-Disassembler/ for documentation
 
 
 
