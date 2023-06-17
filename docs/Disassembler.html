@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Disassembler: Disassembler.cpp File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Disassembler
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Disassembler.cpp File Reference</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1dd7fed1ec7b1a3894ebcb982edcf648"><td class="memItemLeft" align="right" valign="top"><a id="a1dd7fed1ec7b1a3894ebcb982edcf648" name="a1dd7fed1ec7b1a3894ebcb982edcf648"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>size_of_instruction_hex</b>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a1dd7fed1ec7b1a3894ebcb982edcf648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad1ecf4e05769cab7afb52f40d31c0534"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#ad1ecf4e05769cab7afb52f40d31c0534">convert_to_binary</a> (char num)</td></tr>
+<tr class="memdesc:ad1ecf4e05769cab7afb52f40d31c0534"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function converts given character to its Binary format.  <br /></td></tr>
+<tr class="separator:ad1ecf4e05769cab7afb52f40d31c0534"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91bcd2fbf0c12f782b9882fdd989f6f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a91bcd2fbf0c12f782b9882fdd989f6f5">binary_to_decimal</a> (int token, string binary)</td></tr>
+<tr class="memdesc:a91bcd2fbf0c12f782b9882fdd989f6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the given Binary value to Decimal value.  <br /></td></tr>
+<tr class="separator:a91bcd2fbf0c12f782b9882fdd989f6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70701d09fe555736e9742888a464cfe"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#aa70701d09fe555736e9742888a464cfe">sub_string</a> (string parent, int start, int end)</td></tr>
+<tr class="memdesc:aa70701d09fe555736e9742888a464cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used extract substring from string.  <br /></td></tr>
+<tr class="separator:aa70701d09fe555736e9742888a464cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79ad806a58901f7a5120972908609e36"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a79ad806a58901f7a5120972908609e36">R_format</a> (const string &amp;stringBinary)</td></tr>
+<tr class="memdesc:a79ad806a58901f7a5120972908609e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V R-format instruction this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a79ad806a58901f7a5120972908609e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a126d6248d3ae7683be9d20aed27fda29"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a126d6248d3ae7683be9d20aed27fda29">I_format_immediate</a> (const string &amp;stringBinary)</td></tr>
+<tr class="memdesc:a126d6248d3ae7683be9d20aed27fda29"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V I-format instruction this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a126d6248d3ae7683be9d20aed27fda29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a263902f46367e775e015bff79af5c0c5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a263902f46367e775e015bff79af5c0c5">I_format_load</a> (const string &amp;stringBinary)</td></tr>
+<tr class="memdesc:a263902f46367e775e015bff79af5c0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V I-format load instruction type this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a263902f46367e775e015bff79af5c0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a608dbaf3f6c47c83bf1e2198008b89"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a3a608dbaf3f6c47c83bf1e2198008b89">S_format</a> (const string &amp;stringBinary)</td></tr>
+<tr class="memdesc:a3a608dbaf3f6c47c83bf1e2198008b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V S-format this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a3a608dbaf3f6c47c83bf1e2198008b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7835b25c8277d5027008e057c94c955f"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a7835b25c8277d5027008e057c94c955f">B_format</a> (string stringBinary, int inst_no, int total_instructions)</td></tr>
+<tr class="memdesc:a7835b25c8277d5027008e057c94c955f"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V B-format this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a7835b25c8277d5027008e057c94c955f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac13a79a2048c0b4a4c2d56bf06ae84d8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#ac13a79a2048c0b4a4c2d56bf06ae84d8">jal</a> (string stringBinary, int inst_no, int total_instructions)</td></tr>
+<tr class="memdesc:ac13a79a2048c0b4a4c2d56bf06ae84d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V jal format this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:ac13a79a2048c0b4a4c2d56bf06ae84d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d53d90cde03cb77dde132754fca363e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a0d53d90cde03cb77dde132754fca363e">jalr</a> (const string &amp;stringBinary)</td></tr>
+<tr class="memdesc:a0d53d90cde03cb77dde132754fca363e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V jalr format this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a0d53d90cde03cb77dde132754fca363e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04aaf3f8192dbcc9451ace7c3c9fe4cf"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a04aaf3f8192dbcc9451ace7c3c9fe4cf">lui</a> (const string &amp;stringBinary)</td></tr>
+<tr class="memdesc:a04aaf3f8192dbcc9451ace7c3c9fe4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the given machine code represents RISC-V lui format this function generates RISC-V instruction from the machine code.  <br /></td></tr>
+<tr class="separator:a04aaf3f8192dbcc9451ace7c3c9fe4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a234e2512078a5a5793c93b3d0054ba5e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#a234e2512078a5a5793c93b3d0054ba5e">disassembler</a> (int total_instructions, string instruction, int inst_no)</td></tr>
+<tr class="memdesc:a234e2512078a5a5793c93b3d0054ba5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function conversion of given machine code to binary value is done and based on opcode the corresponding instruction type is found and is processed accordingly.  <br /></td></tr>
+<tr class="separator:a234e2512078a5a5793c93b3d0054ba5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed33fe77209e582d96078370b5f8da4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#aaed33fe77209e582d96078370b5f8da4">program</a> ()</td></tr>
+<tr class="memdesc:aaed33fe77209e582d96078370b5f8da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads machine code and each machine code is sent to <a class="el" href="_disassembler_8cpp.html#a234e2512078a5a5793c93b3d0054ba5e" title="This function conversion of given machine code to binary value is done and based on opcode the corres...">disassembler()</a> for further processing.  <br /></td></tr>
+<tr class="separator:aaed33fe77209e582d96078370b5f8da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_disassembler_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function where program execution starts.  <br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file contains the code for Disassembler of RISC-V machine code </p><dl class="section author"><dt>Author</dt><dd>Anudeep Rao Perala </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a7835b25c8277d5027008e057c94c955f" name="a7835b25c8277d5027008e057c94c955f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7835b25c8277d5027008e057c94c955f">&#9670;&#160;</a></span>B_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string B_format </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>stringBinary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inst_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>total_instructions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V B-format this function generates RISC-V instruction from the machine code. </p>
+<p>B-format instructions are: beq, bne, blt, bge, bltu, bgeu </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="a91bcd2fbf0c12f782b9882fdd989f6f5" name="a91bcd2fbf0c12f782b9882fdd989f6f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91bcd2fbf0c12f782b9882fdd989f6f5">&#9670;&#160;</a></span>binary_to_decimal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int binary_to_decimal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>token</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>binary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts the given Binary value to Decimal value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td>This is used to specify if the given binary value is in it's signed/ unsigned format </td></tr>
+    <tr><td class="paramname">binary</td><td>Binary value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Decimal value </dd></dl>
+
+</div>
+</div>
+<a id="ad1ecf4e05769cab7afb52f40d31c0534" name="ad1ecf4e05769cab7afb52f40d31c0534"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ecf4e05769cab7afb52f40d31c0534">&#9670;&#160;</a></span>convert_to_binary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string convert_to_binary </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function converts given character to its Binary format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Input </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This function returns binary number format of the input character for concatenation </dd></dl>
+
+</div>
+</div>
+<a id="a234e2512078a5a5793c93b3d0054ba5e" name="a234e2512078a5a5793c93b3d0054ba5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a234e2512078a5a5793c93b3d0054ba5e">&#9670;&#160;</a></span>disassembler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string disassembler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>total_instructions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>instruction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inst_no</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function conversion of given machine code to binary value is done and based on opcode the corresponding instruction type is found and is processed accordingly. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">total_instructions</td><td>Total number of instructions given as input </td></tr>
+    <tr><td class="paramname">instruction</td><td>This is machine code of the RISC-V instruction </td></tr>
+    <tr><td class="paramname">inst_no</td><td>States the instruction number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Disassembled RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="a126d6248d3ae7683be9d20aed27fda29" name="a126d6248d3ae7683be9d20aed27fda29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a126d6248d3ae7683be9d20aed27fda29">&#9670;&#160;</a></span>I_format_immediate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string I_format_immediate </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>stringBinary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V I-format instruction this function generates RISC-V instruction from the machine code. </p>
+<p>I-format instructions are: addi, xori, ori, andi, slli, srli, srai </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="a263902f46367e775e015bff79af5c0c5" name="a263902f46367e775e015bff79af5c0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a263902f46367e775e015bff79af5c0c5">&#9670;&#160;</a></span>I_format_load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string I_format_load </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>stringBinary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V I-format load instruction type this function generates RISC-V instruction from the machine code. </p>
+<p>I-format load instructions are: ld, lh, lw, lbu, lhu, lwu </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="ac13a79a2048c0b4a4c2d56bf06ae84d8" name="ac13a79a2048c0b4a4c2d56bf06ae84d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac13a79a2048c0b4a4c2d56bf06ae84d8">&#9670;&#160;</a></span>jal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string jal </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>stringBinary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inst_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>total_instructions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V jal format this function generates RISC-V instruction from the machine code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>jal RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="a0d53d90cde03cb77dde132754fca363e" name="a0d53d90cde03cb77dde132754fca363e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d53d90cde03cb77dde132754fca363e">&#9670;&#160;</a></span>jalr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string jalr </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>stringBinary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V jalr format this function generates RISC-V instruction from the machine code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>jalr RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="a04aaf3f8192dbcc9451ace7c3c9fe4cf" name="a04aaf3f8192dbcc9451ace7c3c9fe4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04aaf3f8192dbcc9451ace7c3c9fe4cf">&#9670;&#160;</a></span>lui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string lui </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>stringBinary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V lui format this function generates RISC-V instruction from the machine code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>lui RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main function where program execution starts. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a id="aaed33fe77209e582d96078370b5f8da4" name="aaed33fe77209e582d96078370b5f8da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed33fe77209e582d96078370b5f8da4">&#9670;&#160;</a></span>program()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void program </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function reads machine code and each machine code is sent to <a class="el" href="_disassembler_8cpp.html#a234e2512078a5a5793c93b3d0054ba5e" title="This function conversion of given machine code to binary value is done and based on opcode the corres...">disassembler()</a> for further processing. </p>
+<p>At a time single machine code is processed and corresponding RISC-V instruction is generated, labelling of jump operations is taken care in this function</p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a79ad806a58901f7a5120972908609e36" name="a79ad806a58901f7a5120972908609e36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79ad806a58901f7a5120972908609e36">&#9670;&#160;</a></span>R_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string R_format </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>stringBinary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V R-format instruction this function generates RISC-V instruction from the machine code. </p>
+<p>R-format instructions are: add, sub, xor, or, and, sll, srl, sra </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="a3a608dbaf3f6c47c83bf1e2198008b89" name="a3a608dbaf3f6c47c83bf1e2198008b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a608dbaf3f6c47c83bf1e2198008b89">&#9670;&#160;</a></span>S_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string S_format </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>stringBinary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the given machine code represents RISC-V S-format this function generates RISC-V instruction from the machine code. </p>
+<p>S-format instructions are: sb, sh, sw, sd </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stringBinary</td><td>RISC-V instruction machine code from which the RISCV instruction is generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RISC-V instruction </dd></dl>
+
+</div>
+</div>
+<a id="aa70701d09fe555736e9742888a464cfe" name="aa70701d09fe555736e9742888a464cfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70701d09fe555736e9742888a464cfe">&#9670;&#160;</a></span>sub_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string sub_string </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is used extract substring from string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Parent string from which substring is generated </td></tr>
+    <tr><td class="paramname">start</td><td>Starting index of element in parent string </td></tr>
+    <tr><td class="paramname">end</td><td>End index of element in parent string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Substring from parent string </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>
