@@ -1,3 +1,0 @@
-/Users/anudee512/College/Projects/Disassembler/cmake-build-debug/CMakeFiles/Disassembler.dir
-/Users/anudee512/College/Projects/Disassembler/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/anudee512/College/Projects/Disassembler/cmake-build-debug/CMakeFiles/rebuild_cache.dir
